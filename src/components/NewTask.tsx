@@ -6,7 +6,7 @@ export function NewTask() {
       <input
         type="text"
         placeholder='Adicione uma nova tarefa'
-        className='flex-1 p-4 rounded-lg bg-base-gray-500 border border-base-gray-700 text-base-gray-100 placeholder:text-base-gray-300'
+        className='flex-1 p-4 rounded-lg bg-base-gray-500 border border-base-gray-700 text-base-gray-100 placeholder:text-base-gray-300 focus:border-transparent focus:outline-none focus:shadow-[0px_0px_0px_1.5px] focus:shadow-product-purple-dark'
       />
       <button
         type='submit'
