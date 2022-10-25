@@ -1,4 +1,8 @@
+import './styles/global.css'
+
+
 import { useState } from 'react'
+
 
 export function App() {
 
