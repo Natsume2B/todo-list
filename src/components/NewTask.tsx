@@ -19,8 +19,8 @@ export function NewTask() {
       </form>
 
       <footer className="flex justify-between font-bold pb-6">
-        <p className="text-product-blue">Tarefas Criadas <span className='text-sm text-base-gray-200 bg-base-gray-400 rounded-lg py-[0.01rem] px-[0.6rem]'>0</span></p>
-        <p className="text-product-purple">Concluídas <span className='text-sm text-base-gray-200 bg-base-gray-400 rounded-lg py-[0.01rem] px-[0.6rem]'>0</span></p>
+        <p className="text-product-blue">Tarefas Criadas <span className='text-sm text-base-gray-200 bg-base-gray-400 rounded-xl px-[0.575rem] ml-2'>0</span></p>
+        <p className="text-product-purple">Concluídas <span className='text-sm text-base-gray-200 bg-base-gray-400 rounded-xl px-[0.575rem] ml-2'>0</span></p>
       </footer>
 
     </div>
