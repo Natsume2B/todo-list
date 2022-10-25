@@ -1,6 +1,6 @@
 import Clipboard from '../assets/Clipboard.svg'
 
-export function List() {
+export function EmptyList() {
   return (
     <div className=" flex flex-col items-center border-t border-t-base-gray-400">
       <img className='mt-16' src={Clipboard} alt="Clipboard" />
