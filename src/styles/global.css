@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+
+  body {
+    @apply bg-base-gray-600 text-base-gray-300
+  },
+
   html {
     font-family: inter, sans-serif
   }
