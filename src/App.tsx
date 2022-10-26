@@ -3,8 +3,11 @@ import './styles/global.css'
 import { Header } from './components/Header'
 import { NewTask } from './components/NewTask'
 import { EmptyList } from './components/EmptyList'
+import { Task } from './components/Task'
+
 
 import { useState } from 'react'
+
 
 
 export function App() {
@@ -17,11 +20,10 @@ export function App() {
       <div className='max-w-[736px] mx-auto'>
         <NewTask />
         <main>
-          <EmptyList />
+          <Task />
+          <Task />
         </main>
       </div>
-
-
     </div>
   )
 }
