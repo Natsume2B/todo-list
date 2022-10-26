@@ -20,7 +20,7 @@ export function NewTask() {
 
       <footer className="flex justify-between font-bold pb-6">
         <p className="text-product-blue">Tarefas Criadas <span className='text-sm text-base-gray-200 bg-base-gray-400 rounded-xl px-[0.575rem] ml-2'>0</span></p>
-        <p className="text-product-purple">Concluídas <span className='text-sm text-base-gray-200 bg-base-gray-400 rounded-xl px-[0.575rem] ml-2'>0</span></p>
+        <p className="text-product-purple">Concluídas <span className='text-sm text-base-gray-200 bg-base-gray-400 rounded-xl px-[0.575rem] ml-2'>0 de 0</span></p>
       </footer>
 
     </div>
