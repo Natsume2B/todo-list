@@ -58,7 +58,6 @@ export function NewTask() {
         {tasks.map(task => <Task content={task} tasks={tasks} />)}
       </div>
     </div>
-
   )
 
 }

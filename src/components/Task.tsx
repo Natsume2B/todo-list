@@ -2,7 +2,6 @@ import { Trash } from "phosphor-react"
 
 import { useState } from 'react'
 
-
 export function Task({ content, tasks }) {
 
   const [isChecked, setIsChecked] = useState(false)
