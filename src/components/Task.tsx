@@ -2,7 +2,7 @@ import { Trash } from "phosphor-react"
 
 import { useState } from 'react'
 
-export function Task({ content, tasks, onDeleteTask }) {
+export function Task({ content, onDeleteTask, }) {
 
   const [isChecked, setIsChecked] = useState(false)
 
@@ -10,8 +10,16 @@ export function Task({ content, tasks, onDeleteTask }) {
     setIsChecked(!isChecked)
   }
 
-  function handleDeleteTask(){
+  function handleDeleteTask() {
     onDeleteTask(content)
+  }
+
+  function verifyTask(){
+    if(isChecked === false){
+      return <p>{content}</p>
+    } else if (isChecked === true){
+      return <p className="text-base-gray-300 line-through">{content}</p>
+    }
   }
 
   return (
@@ -24,18 +32,15 @@ export function Task({ content, tasks, onDeleteTask }) {
             onClick={handleTaskChange}
           />
         </div>
-        {tasks.map(() => {
-          if (isChecked === false) {
-            return <p>{content}</p>
-          } else if (isChecked === true) {
-            return <p className="text-base-gray-300 line-through">{content}</p>
-          }
-        })}
+        <div>
+          {verifyTask()}
+        </div>
+
       </label>
       <div>
-        <button 
-        className="cursor-pointer leading-[0] ml-3 hover:text-base-danger duration-[0.2s]"
-        onClick={handleDeleteTask}
+        <button
+          className="cursor-pointer leading-[0] ml-3 hover:text-base-danger duration-[0.2s]"
+          onClick={handleDeleteTask}
         >
           <Trash size={19} />
         </button>

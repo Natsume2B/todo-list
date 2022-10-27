@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import './styles/global.css'
 
 import { Header } from './components/Header'
@@ -14,7 +16,7 @@ export function App() {
         <Header />
       </header>
       <div className='max-w-[736px] mx-auto'>
-      <NewTask/>
+        <NewTask />
       </div>
     </div>
   )
