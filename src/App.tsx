@@ -4,11 +4,7 @@ import { Header } from './components/Header'
 import { NewTask } from './components/NewTask'
 import { EmptyList } from './components/EmptyList'
 
-
-
 import { useState } from 'react'
-
-
 
 export function App() {
 
@@ -18,7 +14,7 @@ export function App() {
         <Header />
       </header>
       <div className='max-w-[736px] mx-auto'>
-        <NewTask />
+      <NewTask/>
       </div>
     </div>
   )
