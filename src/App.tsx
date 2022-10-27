@@ -1,7 +1,7 @@
 import './styles/global.css'
 
 import { Header } from './components/Header'
-import { NewTask } from './components/Tasks'
+import { NewTask } from './components/NewTask'
 import { EmptyList } from './components/EmptyList'
 
 

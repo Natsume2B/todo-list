@@ -1,13 +1,12 @@
 import { PlusCircle } from 'phosphor-react'
-import { Trash } from "phosphor-react"
 
 import { useState } from 'react'
-
+import { Task } from './Task';
 
 export function NewTask() {
 
   const [newTaskText, setNewTaskText] = useState("");
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState([]);
   const [taskCount, setTaskCount] = useState(0);
 
   const isNewTaskValid = newTaskText.length === 0
@@ -24,7 +23,7 @@ export function NewTask() {
     setTaskCount(taskCount + 1)
   }
 
-  function handleNewInvalidTask(){
+  function handleNewInvalidTask() {
     event.target.setCustomValidity('Você precisa digitar algo!')
   }
 
@@ -62,40 +61,4 @@ export function NewTask() {
 
   )
 
-}
-
-export function Task({ content, tasks }) {
-
-  const [isChecked, setIsChecked] = useState(false)
-
-  function handleTaskChange() {
-    setIsChecked(!isChecked)
-  }
-
-  return (
-    <div className="flex justify-between p-4 mb-3 rounded-lg border bg-base-gray-500 border-base-gray-400">
-      <label className="flex text-base-gray-100">
-        <div>
-          <input
-            id="task"
-            className="flex justify-center items-center mt-[0.275rem] text-[0.625rem] font-bold cursor-pointer w-[1.20rem] h-[1.20rem] appearance-none mr-3 bg-transparent rounded-full border-2 border-product-blue after:content-['\2713'] after:opacity-0 checked:after:opacity-100 checked:bg-product-purple-dark checked:border-transparent duration-[0.1s]"
-            type="checkbox"
-            onClick={handleTaskChange}
-          />
-        </div>
-        {tasks.map(() => {
-          if (isChecked === false) {
-            return <p>{content}</p>
-          } else if (isChecked === true) {
-            return <p className="text-base-gray-300 line-through">{content}</p>
-          }
-        })}
-      </label>
-      <div>
-        <button className="cursor-pointer leading-[0] ml-3 hover:text-base-danger duration-[0.2s]">
-          <Trash size={19} />
-        </button>
-      </div>
-    </div>
-  )
 }
