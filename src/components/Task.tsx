@@ -1,14 +1,6 @@
 import { Trash } from "phosphor-react"
 
-import { useState } from 'react'
-
-export function Task({ content, onDeleteTask, }) {
-
-  const [isChecked, setIsChecked] = useState(false)
-
-  function handleTaskChange() {
-    setIsChecked(!isChecked)
-  }
+export function Task({ content, id, isChecked, onDeleteTask }) {
 
   function handleDeleteTask() {
     onDeleteTask(content)
@@ -16,9 +8,9 @@ export function Task({ content, onDeleteTask, }) {
 
   function verifyAndCreateTask(){
     if(isChecked === false){
-      return <p>{content}</p>
+      return <p key={id}>{content}</p>
     } else if (isChecked === true){
-      return <p className="text-base-gray-300 line-through">{content}</p>
+      return <p key={id} className="text-base-gray-300 line-through">{content}</p>
     }
   }
 
@@ -29,7 +21,6 @@ export function Task({ content, onDeleteTask, }) {
           <input
             className="flex justify-center items-center mt-[0.275rem] text-[0.625rem] font-bold cursor-pointer w-[1.20rem] h-[1.20rem] appearance-none mr-3 bg-transparent rounded-full border-2 border-product-blue after:content-['\2713'] after:opacity-0 checked:after:opacity-100 checked:bg-product-purple-dark checked:border-transparent duration-[0.1s]"
             type="checkbox"
-            onClick={handleTaskChange}
           />
         </div>
         <div>
