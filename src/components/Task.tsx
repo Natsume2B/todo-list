@@ -14,7 +14,7 @@ export function Task({ content, onDeleteTask, }) {
     onDeleteTask(content)
   }
 
-  function createAndVerifyTask(){
+  function verifyAndCreateTask(){
     if(isChecked === false){
       return <p>{content}</p>
     } else if (isChecked === true){
@@ -33,7 +33,7 @@ export function Task({ content, onDeleteTask, }) {
           />
         </div>
         <div>
-          {createAndVerifyTask()}
+          {verifyAndCreateTask()}
         </div>
 
       </label>
