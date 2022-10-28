@@ -38,12 +38,13 @@ export function NewTask() {
           className='flex-1 p-4 rounded-lg bg-base-gray-500 border border-base-gray-700 text-base-gray-100 placeholder:text-base-gray-300 focus:border-transparent focus:outline-none focus:shadow-[0px_0px_0px_1.5px] focus:shadow-product-purple-dark'
           onChange={handleNewTaskChange}
           value={newTaskText}
+          required
 
         />
         <button
           type='submit'
           className='flex items-center gap-2 p-4 rounded-lg text-base-gray-100 bg-product-blue-dark hover:bg-product-blue duration-[0.3s] disabled:opacity-20 disabled:hover:bg-product-blue-dark disabled:hover:cursor-not-allowed'
-  
+          disabled={isNewTaskValid}
         >
           Criar
           <PlusCircle size={20} />
