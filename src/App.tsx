@@ -38,6 +38,9 @@ export function App() {
       return task.taskId !== taskId
     })
     setTasks(listWithoutDeletedTask)
+    
+    if (count >= tasks.length)
+      setCount(count - 1)
   }
 
   function changeChecked(taskId, taskChecked) {
@@ -47,7 +50,7 @@ export function App() {
     setTasks([...newList])
   }
 
-  function countTrue(){
+  function countTrue() {
     let numberOftrue = tasks.filter(task => {
       return task.taskChecked === true
     })
