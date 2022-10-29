@@ -38,7 +38,7 @@ export function App() {
       return task.taskId !== taskId
     })
     setTasks(listWithoutDeletedTask)
-    
+
     if (count >= tasks.length)
       setCount(count - 1)
   }
