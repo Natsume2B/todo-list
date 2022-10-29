@@ -46,6 +46,12 @@ export function App() {
     setTasks([...newList])
   }
 
+  function showEmptyList(){
+    if(tasks.length === 0){
+      return <EmptyList/>
+    }
+  }
+
   return (
     <div>
       <header>
@@ -85,6 +91,7 @@ export function App() {
             })}
           </div>
         </div>
+        {showEmptyList()}
       </main>
     </div>
   )
