@@ -1,6 +1,6 @@
 import { Trash } from "phosphor-react"
 
-export function Task({ content, id, checked, onChangeChecked, onDeleteTask }) {
+export function Task({ content, id, checked, onChangeChecked, onDeleteTask, onCountTrue }) {
 
   function handleDeleteTask() {
     onDeleteTask(id)
@@ -8,6 +8,10 @@ export function Task({ content, id, checked, onChangeChecked, onDeleteTask }) {
 
   function handleChangeCheck(){
     onChangeChecked(id, checked)
+  }
+
+  function handleCountTrue(){
+    onCountTrue(checked)
   }
 
   function verifyAndCreateTask(){
@@ -27,6 +31,7 @@ export function Task({ content, id, checked, onChangeChecked, onDeleteTask }) {
           <input
             className="flex justify-center items-center mt-[0.275rem] text-[0.625rem] font-bold cursor-pointer w-[1.20rem] h-[1.20rem] appearance-none mr-3 bg-transparent rounded-full border-2 border-product-blue after:content-['\2713'] after:opacity-0 checked:after:opacity-100 checked:bg-product-purple-dark checked:border-transparent duration-[0.1s]"
             type="checkbox"
+            onChange={handleCountTrue}
             onClick={handleChangeCheck}
           />
         </div>

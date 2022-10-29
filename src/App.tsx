@@ -12,6 +12,7 @@ import { useState } from 'react'
 export function App() {
   const [newTaskText, setNewTaskText] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [count, setCount] = useState(0);
 
   const isNewTaskValid = newTaskText.length === 0
 
@@ -39,16 +40,23 @@ export function App() {
     setTasks(listWithoutDeletedTask)
   }
 
-  function changeChecked(taskId, taskChecked){
+  function changeChecked(taskId, taskChecked) {
     const index = tasks.findIndex(task => task.taskId === taskId);
     const newList = tasks;
     newList[index].taskChecked = !taskChecked
     setTasks([...newList])
   }
 
-  function showEmptyList(){
-    if(tasks.length === 0){
-      return <EmptyList/>
+  function countTrue(){
+    let numberOftrue = tasks.filter(task => {
+      return task.taskChecked === true
+    })
+    setCount(numberOftrue.length)
+  }
+
+  function showEmptyList() {
+    if (tasks.length === 0) {
+      return <EmptyList />
     }
   }
 
@@ -81,12 +89,12 @@ export function App() {
 
           <footer className="flex justify-between font-bold pb-6">
             <p className="text-product-blue">Tarefas Criadas <span className='text-sm text-base-gray-200 bg-base-gray-400 rounded-xl px-[0.575rem] ml-2'>{tasks.length}</span></p>
-            <p className="text-product-purple">Concluídas <span className='text-sm text-base-gray-200 bg-base-gray-400 rounded-xl px-[0.575rem] ml-2'>0 de {tasks.length} </span></p>
+            <p className="text-product-purple">Concluídas <span className='text-sm text-base-gray-200 bg-base-gray-400 rounded-xl px-[0.575rem] ml-2'>{count} de {tasks.length} </span></p>
           </footer>
           <div>
             {tasks.map(task => {
               return (
-                <Task content={task.taskText} id={task.taskId} checked={task.taskChecked} onChangeChecked={changeChecked} onDeleteTask={deleteTask} />
+                <Task content={task.taskText} id={task.taskId} checked={task.taskChecked} onChangeChecked={changeChecked} onDeleteTask={deleteTask} onCountTrue={countTrue} />
               )
             })}
           </div>
