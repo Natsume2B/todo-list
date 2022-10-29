@@ -28,17 +28,22 @@ export function App() {
       taskChecked: false,
     };
 
-
     setTasks([...tasks, newTask])
     setNewTaskText("")
-
   }
 
-  function deleteTask(taskToDelete) {
+  function deleteTask(taskId) {
     const listWithoutDeletedTask = tasks.filter(task => {
-      return task !== taskToDelete
+      return task.taskId !== taskId
     })
     setTasks(listWithoutDeletedTask)
+  }
+
+  function changeChecked(taskId, taskChecked){
+    const index = tasks.findIndex(task => task.taskId === taskId);
+    const newList = tasks;
+    newList[index].taskChecked = !taskChecked
+    setTasks([...newList])
   }
 
   return (
@@ -46,7 +51,7 @@ export function App() {
       <header>
         <Header />
       </header>
-      <div className='max-w-[736px] mx-auto'>
+      <main className='max-w-[736px] mx-auto'>
         <div>
           <form onSubmit={handleCreateNewTask} className='flex justify-center mx-auto mt-[-1.8rem] gap-2 mb-16' >
             <input
@@ -75,12 +80,12 @@ export function App() {
           <div>
             {tasks.map(task => {
               return (
-                <Task content={task.taskText} id={task.taskId} isChecked={task.taskChecked} onDeleteTask={deleteTask} />
+                <Task content={task.taskText} id={task.taskId} checked={task.taskChecked} onChangeChecked={changeChecked} onDeleteTask={deleteTask} />
               )
             })}
           </div>
         </div>
-      </div>
+      </main>
     </div>
   )
 
