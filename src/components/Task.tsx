@@ -1,6 +1,16 @@
 import { Trash } from "phosphor-react"
 
-export function Task({ content, id, checked, onChangeChecked, onDeleteTask, onCountTrue }) {
+interface taskProps {
+  content:string,
+  id:any,
+  checked:boolean,
+  onChangeChecked:(id:string, checked:boolean) => void,
+  onDeleteTask:(id:string) => void,
+  onCountTrue:(checked:boolean) => void,
+  
+}
+
+export function Task({ content, id, checked, onChangeChecked, onDeleteTask, onCountTrue }:taskProps) {
 
   function handleDeleteTask() {
     onDeleteTask(id)

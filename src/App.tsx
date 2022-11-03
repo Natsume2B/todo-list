@@ -7,20 +7,26 @@ import { Header } from './components/Header'
 import { Task } from './components/Task';
 import { EmptyList } from './components/EmptyList'
 
-import { useState } from 'react'
+import { useState, ChangeEvent, FormEvent } from 'react'
+
+interface ITasks {
+  taskId: any,
+  taskText: string,
+  taskChecked: boolean
+}
 
 export function App() {
   const [newTaskText, setNewTaskText] = useState("");
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<ITasks[]>([]);
   const [count, setCount] = useState(0);
 
   const isNewTaskValid = newTaskText.length === 0
 
-  function handleNewTaskChange() {
+  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     setNewTaskText(event.target.value)
   }
 
-  function handleCreateNewTask() {
+  function handleCreateNewTask(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     const newTask = {
@@ -33,21 +39,24 @@ export function App() {
     setNewTaskText("")
   }
 
-  function deleteTask(taskId) {
+  function deleteTask(taskId: any) {
     const listWithoutDeletedTask = tasks.filter(task => {
       return task.taskId !== taskId
     })
     setTasks(listWithoutDeletedTask)
+    if (count >= tasks.length)
+      setCount(count - 1)
   }
 
-  function changeChecked(taskId, taskChecked) {
+  function changeChecked(taskId: any, taskChecked: boolean) {
     const index = tasks.findIndex(task => task.taskId === taskId);
     const newList = tasks;
     newList[index].taskChecked = !taskChecked
     setTasks([...newList])
+    console.log(taskId)
   }
 
-  function countTrue(){
+  function countTrue() {
     let numberOftrue = tasks.filter(task => {
       return task.taskChecked === true
     })
