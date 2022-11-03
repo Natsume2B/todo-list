@@ -2,7 +2,7 @@ import { Trash } from "phosphor-react"
 
 interface taskProps {
   content:string,
-  id:string,
+  id:any,
   checked:boolean,
   onChangeChecked:(id:string, checked:boolean) => void,
   onDeleteTask:(id:string) => void,
