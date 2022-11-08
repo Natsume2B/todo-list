@@ -1,12 +1,2 @@
 # todo-list
-todo-list is the first ignite challenge proposed by rocketseat to reinforce the most important concepts in ReactJS, such as:
-
-State
-
-State immutability
-
-Lists and Keys in ReactJS
-
-Properties
-
-Componentization
+A simple to-do list that you can add, check and remove tasks!
